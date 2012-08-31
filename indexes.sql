@@ -21,7 +21,7 @@ FROM (
 	SELECT TABLE_NAME, INDEX_NAME, COUNT(*) AS NUM_COLUMNS, GROUP_CONCAT(COLUMN_NAME) AS INDEX_COLUMNS
 	FROM information_schema.STATISTICS
 	WHERE TABLE_SCHEMA = DATABASE()
-	AND INDEX_TYPE != 'HASH' -- hash indexes don't have left prefix semantics
+	AND INDEX_TYPE = 'BTREE' -- btree indexes only have left prefix semantics
 	GROUP BY TABLE_NAME, INDEX_NAME
 	HAVING COUNT(*) > 1 -- At least 2 column is mandatory to have a prefix
 ) t2
