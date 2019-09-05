@@ -7,6 +7,7 @@ The whole collection has been split into object objects:
 * [database related queries](databases.sql)
 * [table related queries](tables.sql)
 * [table partitions related queries](partitions.sql)
+* [column related queries](columns.sql)
 * [index related queries](indexes.sql)
 * [user related queries](user.sql)
 
